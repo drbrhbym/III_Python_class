@@ -13,3 +13,5 @@ print(person)
 
 for key in person:
     print("-", key, person[key])
+
+print(len(person))
