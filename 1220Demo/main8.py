@@ -18,3 +18,4 @@ for times in range(100000):
       print("圓外")
 
 print("面積:", 4 * inner / (inner + outer))
+

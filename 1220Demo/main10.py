@@ -18,4 +18,5 @@ print("有幾輛車:", len(buses["datas"]) )
 # buses["datas"] -> list
 # b -> dict
 for b in buses["datas"]:
-    print(b["BusID"], "(", b["Longitude"], ",", b["Latitude"], ")")
+    print(b)
+    #print(b["BusID"], "(", b["Longitude"], ",", b["Latitude"], ")")

@@ -1,10 +1,10 @@
-namelist = ["kay", "alen", "joy", "andy"]
+namelist = ["kay", "alen", "joy", "andy", "joy"]
 print(namelist)
 
 namelist = namelist + ["carol"]
 print(namelist)
 
-print(namelist[1:3])
+print(namelist[1])
 
 for n in namelist:
     print("!", n)
