@@ -4,8 +4,6 @@ import json
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
-
-
 url = "https://www.google.com/doodles/json/2018/12?hl=zh_TW"
 response = urlopen(url)
 doodles = json.load(response) #轉成json格式
