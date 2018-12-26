@@ -15,6 +15,7 @@ import pandas as pd
 # 準備一個 Series, index 的欄位要跟 columns 對到
 df = pd.DataFrame(columns=["綜合評分", "晚間評分", "年間評分", "日文店名", "英文店名", "介紹網址"])
 
+
 page = 59
 while True:
     url = "https://tabelog.com/tw/osaka/rstLst/" + str(page) + "/?SrtT=rt"
@@ -30,10 +31,12 @@ while True:
         en = r.find("a", class_="list-rst__name-main")
         scores = r.find_all("b", class_="c-rating__val")
         img = r.find("img", class_="c-img")
+
+
         fname = "tablelog/" + img["src"].split("/")[-1]
         urlretrieve(img["src"], fname)
-
         '''
+        
         dir = "tablelog/" + str(page) + "/"
         if not os.path.exists(dir):
             os.mkdir(dir)
@@ -51,4 +54,7 @@ while True:
     page = page + 1
 
 # 儲存成 csv, 不過列編號的數字不用存, 所以index=False
-df.to_csv("tablelog.csv", encoding="utf-8", index=False)
+df.to_excel("tablelog.xlsx", encoding="utf-8", index=False)
+
+
+
