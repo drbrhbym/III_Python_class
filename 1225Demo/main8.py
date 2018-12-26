@@ -1,21 +1,19 @@
 # 使用內建的 urllib.request 裡的 urlopen 這個功能來送出網址
 from urllib.request import urlopen, urlretrieve
-import urllib
 from urllib.error import HTTPError
-import os
-
+import time
 from bs4 import BeautifulSoup
 # 如果是 MAC 電腦, 請務必加入下面兩行, 因為 MAC 有視 htpps 的 ssl 證書無效的 bug
 import ssl
-
 ssl._create_default_https_context = ssl._create_unverified_context
-import warnings
+import os
 
+import warnings
 warnings.filterwarnings('ignore')
+
 # 準備空的 DataFrame, 先固定住 columns
 import pandas as pd
 from StyleFrame import StyleFrame
-from StyleFrame import Styler
 
 # 準備一個 Series, index 的欄位要跟 columns 對到
 df = pd.DataFrame(columns=["餐廳美圖", "綜合評分", "晚間評分", "年間評分", "日文店名", "英文店名", "介紹網址"])
@@ -25,7 +23,7 @@ import openpyxl
 from openpyxl import load_workbook
 from openpyxl.drawing import image
 
-page = 60
+page = 59
 while True:
     url = "https://tabelog.com/tw/osaka/rstLst/" + str(page) + "/?SrtT=rt"
     print("處理頁面:", url)
@@ -57,26 +55,38 @@ while True:
         # 因為 Series 沒有橫列的標籤, 所以加進去的時候一定要 ignore_index=True
         df = df.append(s, ignore_index=True)
 
+
     page = page + 1
 
+
+
 sf = StyleFrame(df)
+#sf.set_column_width(columns=sf.columns, width=20)
+#sf.set_row_height(rows=sf.row_indexes, height=25)
+
+
+#sf = StyleFrame(df)
 sf.set_column_width_dict(col_width_dict={
-    ('Col A'): 16.8
+    ("餐廳美圖"): 25.5,
+    ("綜合評分", "晚間評分", "年間評分", "日文店名", "英文店名") : 20,
+    ("介紹網址"): 65.5
  })
 
 all_rows = sf.row_indexes
 sf.set_row_height_dict(row_height_dict={
-    all_rows[1:]: 22
+    all_rows[1:]: 120
 })
 
-ew = StyleFrame.ExcelWriter('tablelog.xlsx')
-sf.to_excel(excel_writer=ew,
+#ew = StyleFrame.ExcelWriter('tablelog.xlsx')
+
+
+sf.to_excel('tablelog.xlsx',
             sheet_name='Sheet1',
             right_to_left=False,
             columns_and_rows_to_freeze='A1',
-            row_to_add_filters=1,
-            allow_protection=True)
-ew.save()
+            row_to_add_filters=0).save()
+            #allow_protection=True
+#ew.save()
 
 # 儲存成 csv, 不過列編號的數字不用存, 所以index=False
 #df.to_excel("tablelog.xlsx", encoding="utf-8", index=False)
@@ -84,7 +94,8 @@ ew.save()
 col = 0
 wb = load_workbook('tablelog.xlsx')
 ws = wb.worksheets[0]
-for fn in glob.glob("tablelog/*.jpg"):
+searchedfiles = sorted(glob.glob("tablelog/*.jpg"), key=os.path.getmtime)
+for fn in searchedfiles :
     img = openpyxl.drawing.image.Image(fn)
     c = str(col + 2)
     ws.add_image(img, 'A' + c)

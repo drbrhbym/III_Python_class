@@ -30,11 +30,11 @@ while True:
         ja = r.find("small", class_="list-rst__name-ja")
         en = r.find("a", class_="list-rst__name-main")
         scores = r.find_all("b", class_="c-rating__val")
-        img = r.find("img", class_="c-img")
+        #img = r.find("img", class_="c-img")
 
 
-        fname = "tablelog/" + img["src"].split("/")[-1]
-        urlretrieve(img["src"], fname)
+        #fname = "tablelog/" + img["src"].split("/")[-1]
+        #urlretrieve(img["src"], fname)
         '''
         
         dir = "tablelog/" + str(page) + "/"
