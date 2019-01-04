@@ -54,7 +54,7 @@ while True:
     page = page + 1
 
 # 儲存成 csv, 不過列編號的數字不用存, 所以index=False
-df.to_excel("tablelog.xlsx", encoding="utf-8", index=False)
+df.to_csv("tablelog.csv", encoding="utf-8", index=False)
 
 
 

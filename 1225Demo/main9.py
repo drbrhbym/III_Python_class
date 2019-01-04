@@ -1,7 +1,6 @@
 # 使用內建的 urllib.request 裡的 urlopen 這個功能來送出網址
 from urllib.request import urlopen, urlretrieve
 from urllib.error import HTTPError
-import time
 from bs4 import BeautifulSoup
 # 如果是 MAC 電腦, 請務必加入下面兩行, 因為 MAC 有視 htpps 的 ssl 證書無效的 bug
 import ssl
@@ -75,7 +74,7 @@ col = 0
 wb = load_workbook('tablelog.xlsx')
 ws = wb.worksheets[0]
 searchedfiles = sorted(glob.glob("tablelog/*.jpg"), key=os.path.getmtime)
-for fn in searchedfiles :
+for fn in searchedfiles:
     img = openpyxl.drawing.image.Image(fn)
     c = str(col + 2)
     ws.add_image(img, 'A' + c)
