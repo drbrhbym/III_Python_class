@@ -78,9 +78,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="370" />
-    <option name="y" value="38" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="92" />
     <option name="width" value="1347" />
     <option name="height" value="970" />
   </component>
@@ -232,7 +231,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="370" y="38" width="1347" height="970" extended-state="1" />
+    <frame x="92" y="0" width="1347" height="970" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -244,7 +243,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42105263" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42105263" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
