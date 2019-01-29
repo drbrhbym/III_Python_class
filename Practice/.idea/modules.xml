@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../1218Demo/.idea/1218Demo.iml" filepath="$PROJECT_DIR$/../1218Demo/.idea/1218Demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../1220Demo/.idea/1220Demo.iml" filepath="$PROJECT_DIR$/../1220Demo/.idea/1220Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Practice.iml" filepath="$PROJECT_DIR$/.idea/Practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/../kafkaTutor/.idea/kafkaTutor.iml" filepath="$PROJECT_DIR$/../kafkaTutor/.idea/kafkaTutor.iml" />
     </modules>

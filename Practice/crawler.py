@@ -10,12 +10,24 @@ import warnings
 warnings.filterwarnings('ignore')
 import pymongo
 
+
 '''
 # MongoDB client
 myclient = pymongo.MongoClient("mongodb://192.168.31.195:27017/")
 # create Database
 mydb = myclient["newsdatabase"]
 '''
+
+def logban(fieldlog,error):
+    import logging
+    import log
+    logger = logging.getLogger(fieldlog)
+    logger.setLevel(logging.INFO)
+    host_demo = "10.120.14.204"
+    logger.addHandler(log.TCPLogstashHandler(host_demo, 5000))
+    logger.error(error)
+
+logban("udn","被ban了")
 
 def crab(class_):
     title = class_.find("h2", class_="nust clearmen")
